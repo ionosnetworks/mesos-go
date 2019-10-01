@@ -193,7 +193,7 @@ func (s *Standalone) _poller(pf fetcherFunc) {
 // assumes that address is in host:port format
 func (s *Standalone) _fetchPid(ctx context.Context, address string) (*upid.UPID, error) {
 	//TODO(jdef) need SSL support
-	uri := fmt.Sprintf("http://%s/state.json", address)
+	uri := fmt.Sprintf("http://%s/state", address)
 	req, err := http.NewRequest("GET", uri, nil)
 	if err != nil {
 		return nil, err
